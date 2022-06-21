@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page Title</title>
+</head>
+<body>
+  <script>
+    // Your JavaScript goes here!
+    function add7(number){
+      return number+7;
+    }
+    function upper(word){
+      return word.charAt(word.length-1);
+    }
+    function fizzbuzz(){
+      let answer = parseInt(prompt("Please enter the number you would like to FizzBuzz up to:"));
+      for (let i=1; i<=answer; i++) {
+        if (i%15 === 0){
+          console.log("FizzBuzz");
+        }
+        else if (i%5 === 0) {
+          console.log("Buzz");
+        }
+        else if (i%3 === 0){
+          console.log("Fizz");
+        }
+        else{
+          console.log(i);
+        }
+        
+      }
+    }
+    console.log("Hello, World!")
+    console.log(add7(4));
+    console.log(upper('hello'));
+    fizzbuzz();
+  </script>
+</body>
+</html>
