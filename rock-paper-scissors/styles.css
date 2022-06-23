@@ -1,3 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+.first{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
 .header{
-    background-color: grey;
+    font-size: 50px;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    color: white;
+}
+
+.second{
+    background-color: rgba(0, 0, 0, 0.714);
+}
+
+.description{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+    color: white;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 200px;
+    gap: 6rem;
+}
+
+
+.button img{
+    height: 100px;
+    width: auto;
+}
+
+.button:hover{
+    background-color: yellow;
+    transform: scale(0.95);
+}
+
+.third{
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
