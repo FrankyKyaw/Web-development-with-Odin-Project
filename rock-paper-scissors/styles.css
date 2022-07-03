@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-
 }
 
 .first{
@@ -12,17 +11,17 @@
 
 .header{
     font-size: 50px;
-    padding-top: 70px;
-    padding-bottom: 50px;
+    padding-top: 55px;
+    padding-bottom: 40px;
     color: white;
 }
 
 .second{
-    background-color: rgba(0, 0, 0, 0.714);
+    background-color: black;
 }
 
 .description{
-    padding: 30px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,6 +29,47 @@
     color: white;
 }
 
+/*Player scoreboard */
+.choices{
+    display: flex;
+    justify-content: center;
+    gap: 17rem;
+    padding: 30px;
+}
+
+.player .player-icon{
+    color: white;
+    height: 150px;
+    width: 150px;
+    font-size: 100px;
+}
+
+.computer .computer-icon{
+    color: white; 
+    height: 150px;
+    width: 150px;
+    font-size: 100px;
+}
+
+.player .player-score{
+    color: white;
+    padding-top: 13px;
+    padding-bottom: 20px;
+    font-size: 35px;
+}
+
+.computer .computer-score{
+    color: white;
+    padding-top: 13px;
+    padding-bottom: 20px;
+    font-size: 35px;
+}
+
+/* Choosing icons */
+.third{
+    padding: 20px;
+    background-color: black;
+}
 .buttons{
     display: flex;
     justify-content: center;
@@ -37,20 +77,24 @@
     gap: 6rem;
 }
 
-
 .button img{
     height: 100px;
     width: auto;
+    cursor: pointer;
+    transition: 100ms;
 }
 
 .button:hover{
-    background-color: yellow;
-    transform: scale(0.95);
+    background-color: black;
+    transform: scale(0.90);
 }
 
-.third{
+
+/* Footer */
+.fourth{
     background-color: black;
     color: white;
     padding: 20px;
     text-align: center;
 }
+

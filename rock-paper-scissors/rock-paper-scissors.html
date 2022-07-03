@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Page Title</title>
   <link rel="stylesheet" href="styles.css">
-  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="script.js" defer></script>
 </head>
 <body>
     <div class="first">
@@ -12,13 +12,29 @@
     </div>
     <div class="second">
         <div class="description">
-            <p>Play against the computer.</p>
             <p>First to get to 5 wins.</p>
-            <p>Good luck.</p>
         </div>
         <div class="choices">
-            
+            <div class="player">
+                <div class="player-icon">
+                    
+                </div>
+                <p class="player-score">
+                    Player: 0
+                <p>
+            </div>
+            <div class="computer">
+                <div class="computer-icon">
+                    
+                </div>
+                <p class="computer-score">
+                    Computer: 0
+                </p>
+            </div>
         </div>
+    </div>
+
+    <div class="third">
         <div class="buttons">
             <button class="button" id="rock">
                 <img src="images/rock.png">
@@ -30,9 +46,12 @@
             <button class="button" id="scissor">
                 <img src="images/scissor.png">
             </button>
-        </div>  
+        </div> 
+        <div id="container">
+            asdf
+        </div> 
     </div>
-    <div class="third">
+    <div class="fourth">
         <footer>
             <p>Copyright © Franky Kyaw</p>
         </footer>
