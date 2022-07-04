@@ -47,7 +47,7 @@ function setEndMessage(){
         end_message.textContent = 'You won!';
     }
     else {
-        end_message.textContent = 'Better luck next time!';
+        end_message.textContent = 'Sorry, you lost!';
     }
 }
 
