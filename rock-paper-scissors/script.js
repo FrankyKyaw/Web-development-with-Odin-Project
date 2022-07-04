@@ -9,6 +9,11 @@ function getComputerSelection(){
     return choices[randomIndex];
 }
 
+
+function isGameOver(){
+    return playerScore === 5 || computerScore === 5;
+}
+
 function playRound(playerSelection, computerSelection){
     for (let i=0; i<1; i++) {
         let player = choices.indexOf(playerSelection);
@@ -26,14 +31,37 @@ function playRound(playerSelection, computerSelection){
 }
 
 
+function openModal(){
+    endModal.classList.add('active');
+    endOverlay.classList.add('active');
+    
+}
+
+function closeModal(){
+    endModal.classList.remove('active');
+    endOverlay.classList.remove('active');
+
+}
+function setEndMessage(){
+    if (playerScore > computerScore){
+        end_message.textContent = 'You won!';
+    }
+    else {
+        end_message.textContent = 'Better luck next time!';
+    }
+}
 
 
 function whenClicked(playerChoice){
+    
     const computerChoice = getComputerSelection();
     updateChoices(playerChoice, computerChoice);
     playRound(playerChoice, computerChoice);
     updateScore();
-    
+    if (isGameOver()){
+        openModal();
+        setEndMessage();
+    }
 }
 
 function updateChoices(playerChoice, computerChoice){
@@ -66,6 +94,15 @@ function updateScore(){
     computer_score.textContent = `Computer: ${computerScore}`;
 }
 
+function restartGame(){
+    playerScore = 0;
+    computerScore = 0;
+    updateScore();
+    closeModal();
+    playerIcon.textContent = '';
+    computerIcon.textContent = '';
+}
+
 const rockBtn = document.querySelector('.button#rock');
 const paperBtn = document.querySelector('.button#paper');
 const scissorBtn = document.querySelector('.button#scissor');
@@ -74,8 +111,12 @@ const playerIcon = document.querySelector('.player-icon');
 const computerIcon = document.querySelector('.computer-icon');
 const player_score = document.querySelector('.player-score');
 const computer_score = document.querySelector('.computer-score');
-
+const end_message = document.querySelector('.end-message');
+const endModal = document.querySelector('.modal');
+const endOverlay = document.querySelector('.overlay');
+const endBtn = document.querySelector('.start-over');
 
 rockBtn.addEventListener('click', () => whenClicked('rock'));
 paperBtn.addEventListener('click', () => whenClicked('paper'));
 scissorBtn.addEventListener('click', () => whenClicked('scissor'));
+endBtn.addEventListener('click', () => restartGame());
