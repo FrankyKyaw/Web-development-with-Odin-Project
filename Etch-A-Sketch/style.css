@@ -1,6 +1,24 @@
+* {
+    margin: 3px;
+    padding: 0;
+}
+
+
 .board{
     width: 500px;
     height: 500px;
     display: grid;
     color: black;
 }
+
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title{
+    font-size: 48px;
+    margin: 20px;
+}
+
