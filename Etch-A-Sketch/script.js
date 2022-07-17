@@ -2,12 +2,20 @@
 const sizeText = document.querySelector('.sizeValue');
 const sizeSlider = document.querySelector('.sizeSlider');
 const black = document.querySelector('.black');
-const color2 = document.querySelector('.color');
+const colorPicker = document.querySelector('.color');
 const rainbow = document.querySelector('.rainbow');
 const eraser = document.querySelector('.eraser');
 const reset = document.querySelector('.reset');
+const flex = document.querySelector('.flex-container');
 
 let color = 'black';
+let currentSize = 16
+let mouseDown = false;
+
+flex.onmousedown = () => (mouseDown = true);
+flex.onmouseup = () => (mouseDown = false);
+
+
 
 function initGrid(size){
   let board = document.querySelector(".board");
@@ -19,7 +27,8 @@ function initGrid(size){
   let gridSize = size * size;
   for (let i = 0; i < gridSize; i++){
     let square = document.createElement('div');
-    square.addEventListener("mouseover", colorSquare);
+    square.addEventListener("mousedown", colorSquare);
+    square.addEventListener('mouseover', colorSquare);
     square.style.backgroundColor = 'white';
     board.insertAdjacentElement("beforeend", square);
   }
@@ -29,18 +38,42 @@ initGrid(16);
 
 sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
 sizeSlider.onchange = (e) => updateGrid(e.target.value);
+reset.onclick = () => resetGrid()
+colorPicker.addEventListener('input', () => {
+  let color = colorPicker.value;
+  changeColor(color)
+})
+
 
 function updateSizeValue(value){
   sizeText.innerHTML = `${value} x ${value}`;
 }
 
+function resetGrid(){
+  initGrid(currentSize);
+  color = 'black';
+}
+
 function updateGrid(value){
+  currentSize = value;
   initGrid(value);
 }
 
-function colorSquare(){
-  this.style.backgroundColor = color;
+
+
+function colorSquare(e){
+  if (e.type == 'mouseover' && !mouseDown) return
+  
+  if (color == 'rainbow'){
+    this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+  }
+  else{
+    this.style.backgroundColor = color;
+  }
+    
 }
+  
+
 
 function changeColor(choice){
   color = choice;

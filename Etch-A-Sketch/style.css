@@ -22,3 +22,10 @@
     margin: 20px;
 }
 
+.buttons{
+    display: flex;
+    gap: 1rem;
+    
+
+}
+

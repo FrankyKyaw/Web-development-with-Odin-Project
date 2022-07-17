@@ -12,11 +12,14 @@
     </div>
     <div class="setting">
       <div class="buttons">
+        
         <button onclick="changeColor('black')">Black</button>
-        <button class="color">Color</button>
-        <button class="rainbow">Rainbow</button>
+        <input type="color" class="color"> 
+        <button onclick="changeColor('rainbow')" class="rainbow">Rainbow</button>
         <button onclick="changeColor('white')">Eraser</button>
-        <button class="reset">Reset</button>
+        <button class='reset' onclick='initGrid(value)'>Reset</button>
+      </div>
+      <div class="slider">
         <div class="sizeValue">16 x 16</div>
         <input class="sizeSlider" type="range" value="16" min="8" max="80">
         
