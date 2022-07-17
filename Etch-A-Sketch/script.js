@@ -1,7 +1,13 @@
 
 const sizeText = document.querySelector('.sizeValue');
 const sizeSlider = document.querySelector('.sizeSlider');
+const black = document.querySelector('.black');
+const color2 = document.querySelector('.color');
+const rainbow = document.querySelector('.rainbow');
+const eraser = document.querySelector('.eraser');
+const reset = document.querySelector('.reset');
 
+let color = 'black';
 
 function initGrid(size){
   let board = document.querySelector(".board");
@@ -13,7 +19,8 @@ function initGrid(size){
   let gridSize = size * size;
   for (let i = 0; i < gridSize; i++){
     let square = document.createElement('div');
-    square.style.background = 'blue';
+    square.addEventListener("mouseover", colorSquare);
+    square.style.backgroundColor = 'white';
     board.insertAdjacentElement("beforeend", square);
   }
 }
@@ -31,7 +38,13 @@ function updateGrid(value){
   initGrid(value);
 }
 
+function colorSquare(){
+  this.style.backgroundColor = color;
+}
 
+function changeColor(choice){
+  color = choice;
+}
 
 
 
