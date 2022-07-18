@@ -12,9 +12,9 @@ let color = 'black';
 let currentSize = 16
 let mouseDown = false;
 
-flex.onmousedown = () => (mouseDown = true);
-flex.onmouseup = () => (mouseDown = false);
 
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
 
 
 function initGrid(size){
@@ -27,10 +27,13 @@ function initGrid(size){
   let gridSize = size * size;
   for (let i = 0; i < gridSize; i++){
     let square = document.createElement('div');
-    square.addEventListener("mousedown", colorSquare);
     square.addEventListener('mouseover', colorSquare);
-    square.style.backgroundColor = 'white';
+    square.addEventListener('mousedown', colorSquare);
+    board.appendChild(square);
+    /*
     board.insertAdjacentElement("beforeend", square);
+    */
+
   }
 }
 
@@ -50,8 +53,10 @@ function updateSizeValue(value){
 }
 
 function resetGrid(){
-  initGrid(currentSize);
-  color = 'black';
+  let board = document.querySelector('.board');
+  let squares = board.querySelectorAll('div');
+  squares.forEach((div) => (div.style.backgroundColor = 'white'));
+
 }
 
 function updateGrid(value){
@@ -59,21 +64,18 @@ function updateGrid(value){
   initGrid(value);
 }
 
-
-
 function colorSquare(e){
+
   if (e.type == 'mouseover' && !mouseDown) return
-  
   if (color == 'rainbow'){
     this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
   }
   else{
     this.style.backgroundColor = color;
   }
-    
+  
 }
   
-
 
 function changeColor(choice){
   color = choice;
