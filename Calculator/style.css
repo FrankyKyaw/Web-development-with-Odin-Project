@@ -1,0 +1,45 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.flex-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 60px;
+}
+
+.calculator{
+    display: flex;
+    flex-direction: column;
+    border: 2px black solid;
+    width: 500px;
+    height: 500px;
+    align-items: center;
+    padding: 20px;
+    gap: 1.5rem;
+    
+
+}
+
+.display{
+    border: 1px black solid;
+    width: 430px;
+    height: 100px;
+}
+
+.button-grid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 10px;
+
+    
+}
+
+.btn{
+    border: 2px black solid;
+    width: 100px;
+    height: 64px;
+}
+
