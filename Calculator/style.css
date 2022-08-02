@@ -12,6 +12,16 @@
     margin-top: 60px;
 }
 
+
+
+.display{
+    font-size: 40px;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+}
+
+
 .calculator{
     display: flex;
     flex-direction: column;
@@ -50,6 +60,10 @@
     height: 64px;
     font-size: 24px;
     border-radius: 2.5rem;
+}
+
+button#clear{
+    grid-column: 3/1;
 }
 
 button#equal{
