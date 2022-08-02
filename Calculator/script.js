@@ -1,6 +1,6 @@
 
 let shouldResetScreen = false;
-let currentOperation = null;
+let evaluated = false;
 
 const buttons = document.querySelectorAll('.btn');
 const numberBtn = document.querySelectorAll('#number');
@@ -29,13 +29,15 @@ buttons.forEach((button) =>
                 
                 try{
                     curScreen.innerText = eval(curScreen.innerText);
+                    evaluated = true;
                 } catch{
                     curScreen.innerText = 'Error!';
                 }
                 break
             default:
-                if (curScreen.innerText === '0') {
+                if (curScreen.innerText === '0' || evaluated === true) {
                     curScreen.innerText = e.target.innerText;
+                    evaluated = false;
                 }
                 else{
                     curScreen.innerText += e.target.innerText;
@@ -46,13 +48,6 @@ buttons.forEach((button) =>
         }
     )
 )
-
-
-function displayNumber(number){
-    if (curScreen.textContent === '0' || shouldResetScreen)
-        resetScreen()
-    curScreen.textContent += number;
-}
 
 function resetScreen(){
     curScreen.textContent = ''
